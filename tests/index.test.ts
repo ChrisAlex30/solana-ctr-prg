@@ -32,8 +32,9 @@ test("Acc is initialized",async()=>{
 
     const dataAccInfo=await conn.getAccountInfo(dataAcc.publicKey);
     console.log(dataAccInfo?.data);
-    //const counter=borsh.deserialize(schema,dataAccInfo?.data);
+    const counter=borsh.deserialize(schema,dataAccInfo?.data) 
     
-    
+    console.log(counter.count);
+    expect(counter.count).toBe(0);
 
 })
